@@ -26,7 +26,7 @@ usersRef.on('child_added', function (snapshot) {
   $("<div id='user'><img src=" + user.pic + "/><span id='username'>@" + user.username + "</span></div>").appendTo($('#here'));
 });
 //STEP 5: Store messages in Firebase
-$('#tweet-submit').on('click', function () {
+$('#submit').on('click', function () {
   if (currentUser !== null) {
     var message = $('#msgInput').val();
     //Send the message to Firebase
