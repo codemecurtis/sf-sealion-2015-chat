@@ -16,60 +16,22 @@
 
     <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
 
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
   </head>
   <body>
+
     <header>
       <h1 class="page-title">Sf Sea Lions Chat</h1>
     </header>
+
     <div class="col-sm-7">
-    <script>
-    var ref = new Firebase("https://sfsealionschat.firebaseio.com/");
-var messagesRef = ref.child('messages');
-var usersRef = ref.child('users');
-var currentUser = null;
-//STEP 2
-  $('#login').on("click", function () {
-    authenticate();
-  });
-//STEP 3
-var authenticate = function() {
-  usersRef.authWithOAuthPopup('twitter', function (error, user) {
-    if (error) {
-      console.log(error);
-    } else if (user) {
-      usersRef.child(user.uid).set({username: user.twitter.username, pic: user.twitter.cachedUserProfile.profile_image_url_https});
-    }
-  });
-};
-  //Save user's auth state
-  usersRef.onAuth(function (user) {
-    currentUser = user;
-  });
-//STEP 4: Display a list of users who have logged in
-usersRef.on('child_added', function (snapshot) {
-  var user = snapshot.val();
-  $("<div id='user'><img src=" + user.pic + "/><span id='username'>@" + user.username + "</span></div>").appendTo($('#here'));
-});
-//STEP 5: Store messages in Firebase
-$('#tweet-submit').on('click', function () {
-  if (currentUser !== null) {
-    var message = $('#msgInput').val();
-    //Send the message to Firebase
-    messagesRef.push({user: currentUser.uid, username: currentUser.twitter.username, message: message, published: new Date().getTime()});
-    $('#msgInput').val('');
-  } else {
-    alert('You must login with Twitter to post!');
-  }
-});
-//STEP 6: Add messages to DOM in realtime
-messagesRef.orderByChild("published").on('child_added', function (snapshot) {
-  var message = snapshot.val();
-    $('#msg-box').prepend($("<div class='msg-text'>").text(message.username).append('<br/>').append($('<span/>').text(message.message)));
-});
-</script>
+      <div id="stream">
+        <div id="msg-window"></div>
+        <input type="text" id="msgInput" placeholder="Your Message..."/>
+        <button type="submit" id="submit">Submit</button>
+      </div>
     </div>
 
     <div class="login-container col-sm-5">
