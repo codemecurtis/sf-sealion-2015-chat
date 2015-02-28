@@ -3,23 +3,51 @@
   <head>
     <title>SF Sealions 2015 Chat App - Matt Lao &amp; Curtis Seaton</title>
 
+    <link rel="stylesheet" href="stylesheets/reset.css">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
   </head>
   <body>
-    <div class="container col-sm-12">
-      <h1>Sf Sea Lions Chat</h1>
-      <button type="button" class="twitter-login btn btn-info"><i class="fa fa-twitter fa-2x"></i>Login with Twitter</button>
-      <button class="google-login btn btn-danger"><i class="fa fa-google fa-2x"></i>Login with Google</button>
-      <button class="github-login btn btn-default"><i class="fa fa-github fa-2x"></i>Login with Github</button>
+    <header>
+      <h1 class="page-title">Sf Sea Lions Chat</h1>
+    </header>
+    <div class="message-container col-sm-7">
+      <div class="message-window">
+      </div>
+      <input type="text" placeholder="Type a message">
+      </input>
+    </div>
+
+    <div class="login-container col-sm-5">
+      <div class="login-buttons">
+          <button type="button" class="twitter-login btn btn-info">
+            <i class="fa fa-twitter fa-lg"></i>
+            Login with Twitter
+          </button>
+          <button type="button" class="google-login btn btn-danger">
+            <i class="fa fa-google fa-lg"></i>
+            Login with Google
+          </button>
+          <button type="button" class="github-login btn btn-default">
+            <i class="fa fa-github fa-lg"></i>
+            Login with Github
+          </button>
+          <h3>Active Users</h3>
+        </div>
     </div>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src= "js/base.js"></script>
   </body>
 </html>
