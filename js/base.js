@@ -3,11 +3,11 @@ var messagesRef = ref.child('messages');
 var usersRef = ref.child('users');
 var currentUser = null;
 //STEP 2
-  $('#login').on("click", function () {
-    authenticate();
+  $('#twitter-login').on("click", function () {
+    twitterAuthenticate();
   });
 //STEP 3
-var authenticate = function() {
+var twitterAuthenticate = function() {
   usersRef.authWithOAuthPopup('twitter', function (error, user) {
     if (error) {
       console.log(error);
