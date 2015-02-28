@@ -18,14 +18,14 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
   </head>
-  <body>
+  <body onload="return_key()">
     <header>
       <h1 class="page-title">Sf Sea Lions Chat</h1>
     </header>
     <div class="message-container col-sm-7">
-      <div class="message-window">
+      <div class="message-window" id="message-board">
       </div>
-      <input type="text" placeholder="Type a message">
+      <input type="text" placeholder="Type a message" id="chat-bar">
       </input>
     </div>
 
