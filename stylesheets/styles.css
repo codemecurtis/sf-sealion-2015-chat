@@ -18,17 +18,22 @@ header{
   width:510px;
 }
 
-.message-window{
+#msg-window{
   height:200px;
-  /*margin-bottom: 20px;*/
+  margin-bottom: 20px;
   border: 1px solid #000000;
 }
 
-.message-container input{
-  width: 100%;
-  height: 50px;
+#msgInput{
+  width: 90%;
 }
 
 .user-list{
 
 }
+
+#submit {
+  widows: 67px;
+}
+
+Hash[*array]
