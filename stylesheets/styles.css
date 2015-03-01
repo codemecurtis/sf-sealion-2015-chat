@@ -28,12 +28,29 @@ header{
   width: 90%;
 }
 
-.user-list{
 
-}
 
 #submit {
-  widows: 67px;
+  width: 67px;
 }
 
-Hash[*array]
+#here {
+  margin-left: 15px;
+}
+
+#user img {
+  border-radius: 48px;
+  margin-right: 10px;
+  border: 1px solid #55acee;
+}
+
+#user {
+  margin: 10px 0;
+
+}
+
+
+#user #username {
+  font-size: 14px;
+  color: #55acee;
+}
