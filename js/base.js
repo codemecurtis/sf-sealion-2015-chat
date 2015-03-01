@@ -33,6 +33,11 @@ var googleAuthenticate = function() {
   //Save user's auth state
   usersRef.onAuth(function (user) {
     currentUser = user;
+
+    $('#logout').on('click', function () {
+      usersRef.remove();
+      location.reload();
+    });
   });
 //STEP 4: Display a list of users who have logged in
 usersRef.on('child_added', function (snapshot) {
@@ -44,22 +49,22 @@ $('#submit').on('click', function () {
   if (currentUser !== null) {
     var message = $('#msgInput').val();
     //Send the message to Firebase
-    messagesRef.push({user: currentUser.uid, username: currentUser.twitter.username, currentUser.google.username,message: message, published: new Date().getTime()});
+    messagesRef.push({user: currentUser.uid, username: currentUser.twitter.username, message: message, published: new Date().getTime()});
     $('#msgInput').val('');
   } else {
-    alert('You must login to post!');
+    alert('You must login with Twitter to post!');
   }
 });
 //STEP 6: Add messages to DOM in realtime
 messagesRef.orderByChild("published").on('child_added', function (snapshot) {
   var message = snapshot.val();
-    $('#msg-window').append($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)))//append # 2;
+    $('#msg-window').append($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)));
 });
 
 $('#msg-window').animate({
-  scrollTop: $('#msg-window')[0].scrollHeight + 20000}, 1000);
+  scrollTop: $('#msg-window')[0].scrollHeight + 200000}, 1000);
 
 $("#submit").click(function() {
   $('#msg-window').animate({
-  scrollTop: $('#msg-window')[0].scrollHeight + 20000}, 1000);
+  scrollTop: $('#msg-window')[0].scrollHeight + 200000}, 1000);
 });
