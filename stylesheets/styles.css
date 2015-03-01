@@ -24,6 +24,16 @@ header{
   border: 1px solid #000000;
 }
 
+.msg-text {
+  margin: 10px;
+  font-weight: bold;
+  color: red;
+}
+
+.msg-text span {
+  color: black;
+}
+
 #msgInput{
   width: 90%;
 }

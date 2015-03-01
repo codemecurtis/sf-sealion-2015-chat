@@ -53,5 +53,5 @@ $('#submit').on('click', function () {
 //STEP 6: Add messages to DOM in realtime
 messagesRef.orderByChild("published").on('child_added', function (snapshot) {
   var message = snapshot.val();
-    $('#msg-box').prepend($("<div class='msg-text'>").text(message.username).append('<br/>').append($('<span/>').text(message.message)));
+    $('#msg-box').prepend($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)));
 });
