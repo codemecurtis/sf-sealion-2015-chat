@@ -47,19 +47,19 @@ $('#submit').on('click', function () {
     messagesRef.push({user: currentUser.uid, username: currentUser.twitter.username, message: message, published: new Date().getTime()});
     $('#msgInput').val('');
   } else {
-    alert('You must login with Twitter to post!');
+    alert('You must login to post!');
   }
 });
 //STEP 6: Add messages to DOM in realtime
 messagesRef.orderByChild("published").on('child_added', function (snapshot) {
   var message = snapshot.val();
-    $('#msg-window').append($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)));
+    $('#msg-window').append($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)))//append # 2;
 });
 
 $('#msg-window').animate({
-  scrollTop: $('#msg-window')[0].scrollHeight + 200}, 1000);
+  scrollTop: $('#msg-window')[0].scrollHeight + 20000}, 1000);
 
 $("#submit").click(function() {
   $('#msg-window').animate({
-  scrollTop: $('#msg-window')[0].scrollHeight + 200}, 1000);
+  scrollTop: $('#msg-window')[0].scrollHeight + 20000}, 1000);
 });
