@@ -56,6 +56,10 @@ messagesRef.orderByChild("published").on('child_added', function (snapshot) {
     $('#msg-window').append($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)));
 });
 
-window.setInterval(function() {
-  $('#msg-window').scrollBottom = $('#msg-window').scrollHeight;
-}, 5000);
+$('#msg-window').animate({
+  scrollTop: $('#msg-window')[0].scrollHeight + 200}, 1000);
+
+$("#submit").click(function() {
+  $('#msg-window').animate({
+  scrollTop: $('#msg-window')[0].scrollHeight + 200}, 1000);
+});
