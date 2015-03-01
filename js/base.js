@@ -21,7 +21,7 @@ var twitterAuthenticate = function() {
 };
 
 var googleAuthenticate = function() {
-  usersRef.authWithOAuthPopup('google', function(error, user) {
+  usersRef.authWithOAuthPopup('google', function (error, user) {
     if(error){
       console.log(error);
     } else if (user) {
@@ -44,7 +44,7 @@ $('#submit').on('click', function () {
   if (currentUser !== null) {
     var message = $('#msgInput').val();
     //Send the message to Firebase
-    messagesRef.push({user: currentUser.uid, username: currentUser.twitter.username, message: message, published: new Date().getTime()});
+    messagesRef.push({user: currentUser.uid, username: currentUser.twitter.username, currentUser.google.username,message: message, published: new Date().getTime()});
     $('#msgInput').val('');
   } else {
     alert('You must login to post!');
