@@ -24,7 +24,8 @@ header{
 
 .login-container  {
   position: relative;
-  float:right;
+  /*float:right;*/
+  margin-left: 20px;
   width:510px;
 }
 
