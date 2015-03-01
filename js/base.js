@@ -55,3 +55,7 @@ messagesRef.orderByChild("published").on('child_added', function (snapshot) {
   var message = snapshot.val();
     $('#msg-window').append($("<div class='msg-text'>").text(message.username).append(' : ').append($('<span/>').text(message.message)));
 });
+
+window.setInterval(function() {
+  $('#msg-window').scrollBottom = $('#msg-window').scrollHeight;
+}, 5000);
