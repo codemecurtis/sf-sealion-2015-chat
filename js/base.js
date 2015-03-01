@@ -6,6 +6,9 @@ var currentUser = null;
   $('#twitter-login').on("click", function () {
     twitterAuthenticate();
   });
+  $('#google-login').on("click", function(){
+    googleAuthenticate();
+  });
 //STEP 3
 var twitterAuthenticate = function() {
   usersRef.authWithOAuthPopup('twitter', function (error, user) {
@@ -16,6 +19,17 @@ var twitterAuthenticate = function() {
     }
   });
 };
+
+var googleAuthenticate = function() {
+  usersRef.authWithOAuthPopup('google', function(error, user) {
+    if(error){
+      console.log(error);
+    } else if (user) {
+      usersRef.child(user.uid).set({username: user.google.displayName, pic: user.google.cachedUserProfile.profile_image_url_https})
+    }
+  });
+};
+
   //Save user's auth state
   usersRef.onAuth(function (user) {
     currentUser = user;
