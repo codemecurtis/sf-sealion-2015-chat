@@ -1,8 +1,3 @@
 # SF Sea Lions 2015 Chat App
 
-### Login Options
-  Twitter
-  Google +
-  Github
-
-###
+Firebase tutorial chat app built by Matt Lao &amp; Curtis Seaton
